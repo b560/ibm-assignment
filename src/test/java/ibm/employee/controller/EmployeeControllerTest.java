@@ -53,7 +53,7 @@ public class EmployeeControllerTest {
 	}
 	
 	@Test
-	public void getAllEmployees_and_retyrn_null() {
+	public void getAllEmployees_and_return_null() {
 		Mockito.when(employeeServiceImpl.getAllEmployees()).thenReturn(null);
 		List<Employee> results = employeeController.getAllEmployees();
 		assertNull(results);
