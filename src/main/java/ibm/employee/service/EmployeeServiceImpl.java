@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import ibm.employee.dao.EmployeeDAO;
 import ibm.employee.model.Employee;
 
-@Component
+@Service
 public class EmployeeServiceImpl implements EmployeeService {
 	
 	@Autowired

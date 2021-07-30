@@ -1,1 +1,2 @@
-ibm\employee\service\EmployeeServiceTest.class
+ibm\employee\controller\EmployeeControllerTest.class
+ibm\employee\service\EmployeeServiceImplTest.class
