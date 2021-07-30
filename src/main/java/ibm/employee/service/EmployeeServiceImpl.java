@@ -15,6 +15,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Autowired
 	private EmployeeDAO employeeDao;
 	
+	/*
+	 * The service to get all employees from the database
+	 *
+	 */
 	public List<Employee> getAllEmployees(){
 		List<Employee> employees = employeeDao.findAll();
 		if(employees != null)
@@ -22,6 +26,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return null;
 	}
 	
+	/*
+	 * service to get an employee given a employee id
+	 *
+	 */
 	public Employee getEmployeeById(long id) {
 		Employee employee = employeeDao.findEmployeeByEmployeeId(id);
 		if(employee != null)
@@ -29,6 +37,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return null;
 	}
 	
+	/*
+	 * 
+	 * service to add new employee to the  database
+	 */
 	public Employee addEmployee(Employee employee) {
 		if(employee != null) {
 			return employeeDao.save(employee);
@@ -36,9 +48,17 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return null;
 	}
 	
+	/*
+	 * 
+	 * service to update employee in the  database
+	 */
 	public Employee updateEmployeeDetails(Employee employee) {
-			Employee finalEmployee = employeeDao.save(employee);
-			return finalEmployee;	
+		    long requestObjectEmployeeId = employee.getEmployeeId();
+		    Employee existedEmployee = employeeDao.findEmployeeByEmployeeId(requestObjectEmployeeId);
+		    if(employee != null) {
+			 return  employeeDao.save(employee);
+		    }
+			return null;	
 	}
 
 }

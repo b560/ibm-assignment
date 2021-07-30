@@ -19,6 +19,12 @@ import ibm.employee.model.Employee;
 import ibm.employee.service.EmployeeService;
 import ibm.employee.service.EmployeeServiceImpl;
 
+/*
+ * The unit test for 
+ * the controller class using junit 5 and mockito
+ * 
+ */
+
 public class EmployeeControllerTest {
 	
 	@InjectMocks private EmployeeController employeeController;
@@ -31,13 +37,13 @@ public class EmployeeControllerTest {
 	}
 	
 	@AfterEach
-	void tearDown() {
+	public void tearDown() {
 		employeeController = null;
 		employeeServiceImpl = null;
 	}
 	
 	@Test
-	void getAllEmployees_and_return_employees() {
+	public void getAllEmployees_and_return_employees() {
 		
 		List<Employee> employees = getAllEmployees();
 		Mockito.when(employeeServiceImpl.getAllEmployees()).thenReturn(employees);
@@ -47,14 +53,14 @@ public class EmployeeControllerTest {
 	}
 	
 	@Test
-	void getAllEmployees_and_retyrn_null() {
+	public void getAllEmployees_and_retyrn_null() {
 		Mockito.when(employeeServiceImpl.getAllEmployees()).thenReturn(null);
 		List<Employee> results = employeeController.getAllEmployees();
 		assertNull(results);
 	}
 	
 	@Test
-	void getEmployee_given_employeeid_and_return_employee() {
+	public void getEmployee_given_employeeid_and_return_employee() {
 		long employeedId = 101;
 		Employee employee = new Employee(101,"Jared","Sales Representative");
 		Mockito.when(employeeServiceImpl.getEmployeeById(employeedId)).thenReturn(employee);
@@ -64,7 +70,7 @@ public class EmployeeControllerTest {
 	}
 	
 	@Test
-	void getEmployee_given_employeeid_and_return_null() {
+	public void getEmployee_given_employeeid_and_return_null() {
 		long employeedId = 101;
 		Mockito.when(employeeServiceImpl.getEmployeeById(employeedId)).thenReturn(null);
 		Employee result = employeeController.getEmployeeById(employeedId);
@@ -72,7 +78,7 @@ public class EmployeeControllerTest {
 	}
 	
 	@Test
-	void addNewEmployee_save_employee_and_return_employee() {
+	public void addNewEmployee_save_employee_and_return_employee() {
 		Employee employee = new Employee(101,"Jared","Sales Representative");
 		Mockito.when(employeeServiceImpl.addEmployee(employee)).thenReturn(employee);
 		Employee result = employeeController.addNewEmployee(employee);
@@ -81,7 +87,7 @@ public class EmployeeControllerTest {
 	}
 	
 	@Test
-	void updateEmployeeDetails_and_return_employee() {
+	public void updateEmployeeDetails_and_return_employee() {
 		Employee employee = new Employee(101,"Jared","Sales Representative");
 		Mockito.when(employeeServiceImpl.updateEmployeeDetails(employee)).thenReturn(employee);
 		Employee result = employeeController.updateEmployeeDetails(employee);

@@ -7,10 +7,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Component;
 
-
-//@ComponentScan({"ibm.employee.service","ibm.employee.controller"})
-//@EntityScan("ibm.employee.model")
-//@EnableJpaRepositories("ibm.employee.dao")
 @SpringBootApplication
 public class IbmEmployeeMainProgram {
 	

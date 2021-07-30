@@ -21,6 +21,11 @@ import ibm.employee.dao.EmployeeDAO;
 import ibm.employee.model.Employee;
 import ibm.employee.service.EmployeeServiceImpl;
 
+/*
+ * The unit test for the service class using junit 5 and mockito
+ * 
+ */
+
 
 public class EmployeeServiceImplTest {
 	
