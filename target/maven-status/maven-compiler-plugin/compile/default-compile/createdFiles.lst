@@ -1,3 +1,4 @@
+ibm\employee\model\Name.class
 ibm\employee\service\EmployeeServiceImpl.class
 ibm\employee\controller\EmployeeController.class
 ibm\employee\model\Employee.class

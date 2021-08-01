@@ -23,23 +23,48 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
 	
+	
+	/*
+	 * The method to call the 
+	 * service that gets
+	 * all employees 
+	 * from the Database
+	 */
 	@GetMapping("/employees")
 	public List<Employee> getAllEmployees(){
 		
 		return employeeService.getAllEmployees();
 	}
 	
+	/*
+	 * The method to call the service 
+	 * that gets an employee
+	 * by their id
+	 * from the database
+	 */
 	@GetMapping("/employees/{employeeId}")
 	public Employee getEmployeeById(@PathVariable long employeeId) {
 		
 		return employeeService.getEmployeeById(employeeId);
 	}
 	
+	/*
+	 * The method with the http
+	 * method that add an employee
+	 * to the database
+	 */
 	@PostMapping("/employees")
 	public Employee addNewEmployee(@RequestBody Employee employee) {
 		return employeeService.addEmployee(employee);
 	}
 	
+	/*
+	 * The method 
+	 * that calls the service 
+	 * to update employee 
+	 * details in the database
+	 * 
+	 */
 	@PutMapping("/employee")
 	public Employee updateEmployeeDetails(@RequestBody Employee employee) {
 		return employeeService.updateEmployeeDetails(employee);

@@ -16,6 +16,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import ibm.employee.model.Employee;
+import ibm.employee.model.Name;
 import ibm.employee.service.EmployeeService;
 import ibm.employee.service.EmployeeServiceImpl;
 
@@ -62,7 +63,7 @@ public class EmployeeControllerTest {
 	@Test
 	public void getEmployee_given_employeeid_and_return_employee() {
 		long employeedId = 101;
-		Employee employee = new Employee(101,"Jared","Sales Representative");
+		Employee employee = getEmployee();
 		Mockito.when(employeeServiceImpl.getEmployeeById(employeedId)).thenReturn(employee);
 		Employee result = employeeController.getEmployeeById(employeedId);
 		assertNotNull(result);
@@ -79,7 +80,7 @@ public class EmployeeControllerTest {
 	
 	@Test
 	public void addNewEmployee_save_employee_and_return_employee() {
-		Employee employee = new Employee(101,"Jared","Sales Representative");
+		Employee employee = getEmployee();
 		Mockito.when(employeeServiceImpl.addEmployee(employee)).thenReturn(employee);
 		Employee result = employeeController.addNewEmployee(employee);
 		assertNotNull(result);
@@ -88,7 +89,7 @@ public class EmployeeControllerTest {
 	
 	@Test
 	public void updateEmployeeDetails_and_return_employee() {
-		Employee employee = new Employee(101,"Jared","Sales Representative");
+		Employee employee = getEmployee();
 		Mockito.when(employeeServiceImpl.updateEmployeeDetails(employee)).thenReturn(employee);
 		Employee result = employeeController.updateEmployeeDetails(employee);
 		assertNotNull(result);
@@ -97,14 +98,48 @@ public class EmployeeControllerTest {
 	
 	
 	private List<Employee> getAllEmployees(){
-		Employee firstMockEmployee = new Employee(101,"Jared","Sales Representative");
-		Employee secondMockEmployee = new Employee(102,"Ryan","Software Developer");
-		Employee thirdMockEmployee = new Employee(103,"Alalade","Financial Analyst");
+		Employee firstMockEmployee = new Employee();
+		Name firstEmployeeName = new Name();
+		firstMockEmployee.setEmployeeId(101);
+		firstMockEmployee.setJobRole("Sales Representative");
+		firstEmployeeName.setFirstName("Jared");
+		firstEmployeeName.setMiddleName("Head");
+		firstEmployeeName.setLastName("Eric");
+		firstMockEmployee.setName(firstEmployeeName);
+		Employee secondMockEmployee = new Employee();
+		Name secondEmployeeName = new Name();
+		secondMockEmployee.setEmployeeId(102);
+		secondMockEmployee.setJobRole("Software Engineer");
+		secondEmployeeName.setFirstName("Brittany");
+		secondEmployeeName.setMiddleName("Philips");
+		secondEmployeeName.setLastName("Frank");
+		secondMockEmployee.setName(firstEmployeeName);		
+		Employee thirdMockEmployee = new Employee();
+		Name thirdEmployeeName = new Name();
+		thirdMockEmployee.setEmployeeId(103);
+		thirdMockEmployee.setJobRole("Financial Analyst");
+		thirdEmployeeName.setFirstName("Samson");
+		thirdEmployeeName.setMiddleName("Richard");
+		thirdEmployeeName.setLastName("Victor");
+		thirdMockEmployee.setName(firstEmployeeName);
 		List<Employee> employees = new ArrayList<>();
 		employees.add(firstMockEmployee);
 		employees.add(secondMockEmployee);
 		employees.add(thirdMockEmployee);
 		return employees;
+	}
+	
+	private Employee getEmployee() {
+		Employee firstMockEmployee = new Employee();
+		Name firstEmployeeName = new Name();
+		firstMockEmployee.setEmployeeId(101);
+		firstMockEmployee.setJobRole("Sales Representative");
+		firstEmployeeName.setFirstName("Jared");
+		firstEmployeeName.setMiddleName("Head");
+		firstEmployeeName.setLastName("Eric");
+		firstMockEmployee.setName(firstEmployeeName);
+		return firstMockEmployee;
+
 	}
 
 }

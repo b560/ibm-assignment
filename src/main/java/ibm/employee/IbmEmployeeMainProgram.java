@@ -9,9 +9,9 @@ import org.springframework.stereotype.Component;
 
 @SpringBootApplication
 public class IbmEmployeeMainProgram {
-	
+
 	public static void main(String[] args) {
-	      SpringApplication.run(IbmEmployeeMainProgram.class, args);
-		}
+		SpringApplication.run(IbmEmployeeMainProgram.class, args);
+	}
 
 }

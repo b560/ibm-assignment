@@ -13,29 +13,8 @@ public class Employee {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name ="employee_id")
 	private long employeeId;
-	private String name;
+	private Name name;
 	private String jobRole;
-	
-	
-   public Employee() {
-		
-	}
-	
-	public Employee(String name, String jobRole) {
-		super();
-		this.name = name;
-		this.jobRole = jobRole;
-	}
-	
-	
-	
-	public Employee(long employeeId, String name, String jobRole) {
-		super();
-		this.employeeId = employeeId;
-		this.name = name;
-		this.jobRole = jobRole;
-	}
-	
 	
 	
 	public long getEmployeeId() {
@@ -44,10 +23,10 @@ public class Employee {
 	public void setEmployeeId(long employeeId) {
 		this.employeeId = employeeId;
 	}
-	public String getName() {
+	public Name getName() {
 		return name;
 	}
-	public void setName(String name) {
+	public void setName(Name name) {
 		this.name = name;
 	}
 	public String getJobRole() {
